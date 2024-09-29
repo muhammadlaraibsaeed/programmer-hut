@@ -3,19 +3,20 @@
 namespace App\Repositories;
 
 use App\Contracts\RepositoryInterface;
+use App\Models\User as Employees;
 
 class EmployeesRepository implements RepositoryInterface
 {
     protected $employee;
 
-    public function __construct( $employee)
+    public function __construct(Employees $employee)
     {
         $this->employee = $employee;
     }
 
     public function all()
     {
-        return $this->employee->all();
+        return $this->employee->with('company')->get();
     }
 
     public function find($id)
@@ -23,21 +24,20 @@ class EmployeesRepository implements RepositoryInterface
         return $this->employee->findOrFail($id);
     }
 
-    public function create(array $data)
+    public function create( $data)
     {
         return $this->employee->create($data);
     }
 
-    public function update($id, array $data)
+    public function update($id,  $data)
     {
         $employee = $this->find($id);
         $employee->update($data);
         return $employee;
     }
 
-    public function delete($id)
+    public function delete($employee)
     {
-        $employee = $this->find($id);
         return $employee->delete();
     }
 }

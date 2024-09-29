@@ -19,8 +19,12 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'fname',
+        'lname',
         'email',
         'password',
+        'phone',
+        'company_id'
     ];
 
     /**
@@ -42,4 +46,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    // Accessor 
+    // public function getFullNameAttribute()
+    // {
+    //     return !empty($this->name) ? $this->name : "{$this->fname} {$this->lname}";
+    // }
+
+    // Relationship Created 
+    public function company(){
+        return $this->belongsTo(Company::class);
+    }
 }
