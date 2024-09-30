@@ -44,7 +44,10 @@ Mini CRM is a simple application built with Laravel, Vue.js, and Tailwind CSS fo
 
 ## Installation
 
--   Create a local copy of the repository.
+-   Create a local copy of the repository. 
+    ```
+        git clone https://github.com/muhammadlaraibsaeed/programmer-hut
+    ```
 -   Make sure you have xxamp or something similiar.
 -   Create a database, name it 'laravel_ikionic'.
 -   Setup .env file `cp .env .example .env`
