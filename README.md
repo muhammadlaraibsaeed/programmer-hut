@@ -16,8 +16,8 @@ Mini CRM is a simple application built with Laravel, Vue.js, and Tailwind CSS fo
 - **Validation**: Use Laravel's validation functions to ensure data integrity.
 
 ## Technologies Used
-
-- **Backend**: Laravel
+- **PHP** : php "^8.1",
+- **Backend**: Laravel 
 - **Frontend**: Vue.js, Tailwind CSS
 - **Database**: MySQL
 
