@@ -5,7 +5,10 @@ import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
-import { Link } from '@inertiajs/vue3';
+import { Link, usePage } from '@inertiajs/vue3';
+const page = usePage();
+
+const isAdmin =  page.props.auth.user.isAdmin==1;
 
 const showingNavigationDropdown = ref(false);
 </script>
@@ -33,18 +36,21 @@ const showingNavigationDropdown = ref(false);
                                     Dashboard
                                 </NavLink>
                             </div>
+                            
+                            
+                                <div v-if="isAdmin" class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                    <NavLink :href="route('companies.index')" :active="route().current('companies.index')">
+                                        Companies
+                                    </NavLink>
+                                </div>
 
-                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                                <NavLink :href="route('companies.index')" :active="route().current('companies.index')">
-                                    Companies
-                                </NavLink>
-                            </div>
+                                <div v-if="isAdmin" class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                    <NavLink :href="route('employees.index')" :active="route().current('employees.index')">
+                                        Employees
+                                    </NavLink>
+                                </div>
+                            
 
-                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                                <NavLink :href="route('employees.index')" :active="route().current('employees.index')">
-                                    Employees
-                                </NavLink>
-                            </div>
                         </div>
 
                         <div class="hidden sm:flex sm:items-center sm:ms-6">

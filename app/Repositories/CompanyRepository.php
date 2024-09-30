@@ -45,10 +45,11 @@ class CompanyRepository implements RepositoryInterface
 
     public function update($company,$request)
     {
-        
-        $logo = $this->uploadImage($request);
         $data = $request->except('logo');
-        $data['logo'] = preg_replace('/^public/', 'storage',  $logo);
+        if ($request->hasFile('logo')) {
+            $logo = $this->uploadImage($request);
+            $data['logo'] = preg_replace('/^public/', 'storage',  $logo);
+        }
         $company->update($data);
         return $company;
     }
