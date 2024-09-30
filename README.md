@@ -44,7 +44,11 @@ Mini CRM is a simple application built with Laravel, Vue.js, and Tailwind CSS fo
 
 ## Installation
 
-1. **Clone the repository**:
-   ```bash
-   git clone <repository-url>
-   cd mini-crm
+-   Create a local copy of the repository.
+-   Make sure you have xxamp or something similiar.
+-   Create a database, name it 'laravel_ikionic'.
+-   Setup .env file `cp .env .example .env`
+-   Run `composer install` and `php artisan key:generate`.
+-   When you see the login page, head over the register page, create an account and log in. After that you wil able do following thiings Add ,Comments,Like,Dislikes FeedBack.
+-   `php artisan migrate` For Migration Table Into Database
+-   You can utilize the database seeder by running the command `php artisan db:seed` to generate synthetic or test data for application.
