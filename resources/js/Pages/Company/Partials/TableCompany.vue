@@ -1,7 +1,7 @@
 <script setup>
   import { defineProps } from 'vue';
   import { Head, router } from '@inertiajs/vue3';
-
+  import Pagination from '@/Components/Pagination .vue';
   // Define props
   const props = defineProps({
     companies: {
@@ -17,6 +17,8 @@
     const companyDelete = (companyId) => {
       router.delete(route('companies.destroy', { company: companyId }));
     }
+
+    
 </script>
 
 <template>
@@ -32,7 +34,7 @@
         </tr>
       </thead>
       <tbody class="text-gray-600 text-sm font-light">
-        <tr v-for="company in companies" :key="company.id" class="border-b border-gray-200 hover:bg-gray-100">
+        <tr v-for="company in companies.data" :key="company.id" class="border-b border-gray-200 hover:bg-gray-100">
           <td class="py-3 px-6">{{ company.name }}</td>
           <td class="py-3 px-6">{{ company.email }}</td>
           <td class="py-3 px-6">
@@ -59,6 +61,8 @@
       </tbody>
     </table>
   </div>
+  <Pagination :pagination="companies" />
+  <!-- {{ console.log(companies.links) }} -->
 </template>
 
 <style scoped>

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Company;
-use App\Repositories\CompanyRepository;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
+use App\Models\Company;
+use Illuminate\Http\Request;
+use App\Repositories\CompanyRepository;
+use App\Http\Requests\StoreCompanyRequest;
 
 class CompanyController extends Controller
 {
@@ -39,7 +40,7 @@ class CompanyController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreCompanyRequest $request)
     {     
         $this->companyRepository->create($request);
     }

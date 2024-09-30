@@ -18,9 +18,9 @@ import { reactive } from 'vue'
         </template>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 text-gray-900 dark:text-gray-100">You're logged in!</div>
-                    <div @click="companyIndex" class="cursor-pointer">Show Message</div>
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-lg sm:rounded-lg">
+                    <h1 class="text-center text-3xl p-6 text-gray-900 dark:text-gray-100"><strong>Mini CRM</strong></h1>
+                    <!-- <div @click="companyIndex" class="cursor-pointer">Show Message</div> -->
                 </div>
             </div>
         </div>

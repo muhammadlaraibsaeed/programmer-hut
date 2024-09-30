@@ -19,7 +19,7 @@ class CompanyRepository implements RepositoryInterface
 
     public function all()
     {
-        return $this->company->all();
+        return $this->company::paginate(10);
     }
 
     public function find($id)
@@ -29,9 +29,17 @@ class CompanyRepository implements RepositoryInterface
 
     public function create($request)
     {
-        $logo = $this->uploadImage($request);
-        $data = $request->except('logo');
-        $data['logo'] = preg_replace('/^public/', 'storage',  $logo);
+        
+        if ($request->hasFile('logo')) {
+            $logo = $this->uploadImage($request);
+            $data = $request->except('logo');
+            $data['logo'] = preg_replace('/^public/', 'storage',  $logo);
+        } else {
+            $data = $request->except('logo');
+            $data['logo'] = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCRRdvpS3KRcG9a43mI5-vbU2kysPylGtfHw&s"; 
+        }
+
+
         return $this->company->create($data);
     }
 
@@ -49,5 +57,9 @@ class CompanyRepository implements RepositoryInterface
     {
         $company = $this->find($id);
         return $company->delete();
+    }
+
+    public function getAll(){
+        return $this->company->all();
     }
 }

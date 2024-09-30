@@ -119,9 +119,9 @@ const handleFileUpload = (event)=>{
           id="name"
           type="text"
           class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-          required
+          
         />
-        <span v-if="form.errors.name" class="text-red-500 text-sm">{{ errors.name }}</span>
+        <span v-if="form.errors.name" class="text-red-500 text-sm">{{ form.errors.name }}</span>
       </div>
 
       <!-- Email Field -->
@@ -132,9 +132,9 @@ const handleFileUpload = (event)=>{
           id="email"
           type="email"
           class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-          required
+          
         />
-        <span v-if="form.errors.email" class="text-red-500 text-sm">{{ errors.email }}</span>
+        <span v-if="form.errors.email" class="text-red-500 text-sm">{{ form.errors.email }}</span>
       </div>
 
       <!-- Logo Upload Field (Optional) -->
@@ -146,7 +146,7 @@ const handleFileUpload = (event)=>{
           type="file"
           class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
         />
-        <span v-if="form.errors.logo" class="text-red-500 text-sm">{{ errors.logo }}</span>
+        <span v-if="form.errors.logo" class="text-red-500 text-sm">{{ form.errors.logo }}</span>
       </div>
 
       <!-- Website Link Field (Optional) -->

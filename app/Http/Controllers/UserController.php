@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreEmployeeRequest;
 use App\Models\User as Employee;
 use App\Repositories\CompanyRepository;
 use App\Repositories\EmployeesRepository;
@@ -37,14 +38,14 @@ class UserController extends Controller
      */
     public function create()
     {
-       $companies = $this->companyRepository->all();
+       $companies = $this->companyRepository->getAll();
         return Inertia::render('Employee/CreateEmployee',compact('companies'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreEmployeeRequest $request)
     {
         $this->employeesRepository->create($request->all());
     }
@@ -62,7 +63,7 @@ class UserController extends Controller
      */
     public function edit(Employee $employee)
     {
-            $companies = $this->companyRepository->all();
+            $companies = $this->companyRepository->getAll();
             return Inertia::render('Employee/EditEmployee',compact('employee','companies'));
     }
 

@@ -111,9 +111,9 @@ const handleIndex = ()=>{
           id="fname"
           type="text"
           class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-          required
+          
         />
-        <span v-if="form.errors.fname" class="text-red-500 text-sm">{{ errors.fname }}</span>
+        <span v-if="form.errors.fname" class="text-red-500 text-sm">{{ form.errors.fname }}</span>
       </div>
 
       <!-- Last Name Field -->
@@ -124,9 +124,9 @@ const handleIndex = ()=>{
           id="lname"
           type="text"
           class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-          required
+          
         />
-        <span v-if="form.errors.lname" class="text-red-500 text-sm">{{ errors.lname }}</span>
+        <span v-if="form.errors.lname" class="text-red-500 text-sm">{{ form.errors.lname }}</span>
       </div>
 
       <!-- Company Name Dropdown -->
@@ -136,12 +136,12 @@ const handleIndex = ()=>{
           v-model="form.company_id"
           id="company_id"
           class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-          required
+      
         >
           <option disabled value="">Please select a company</option>
           <option v-for="company in companies" :key="company.id" :value="company.id">{{ company.name }}</option>
         </select>
-        <span v-if="form.errors.company_id" class="text-red-500 text-sm">{{ errors.company_id }}</span>
+        <span v-if="form.errors.company_id" class="text-red-500 text-sm">{{ form.errors.company_id }}</span>
       </div>
 
       <!-- Email Field -->
@@ -152,9 +152,9 @@ const handleIndex = ()=>{
           id="email"
           type="email"
           class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-          required
+          
         />
-        <span v-if="form.errors.email" class="text-red-500 text-sm">{{ errors.email }}</span>
+        <span v-if="form.errors.email" class="text-red-500 text-sm">{{ form.errors.email }}</span>
       </div>
 
       <!-- Phone Field -->
@@ -165,9 +165,9 @@ const handleIndex = ()=>{
           id="phone"
           type="tel"
           class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-          required
+          
         />
-        <span v-if="form.errors.phone" class="text-red-500 text-sm">{{ errors.phone }}</span>
+        <span v-if="form.errors.phone" class="text-red-500 text-sm">{{ form.errors.phone }}</span>
       </div>
 
       <!-- Submit Button -->
@@ -176,4 +176,5 @@ const handleIndex = ()=>{
       </button>
     </form>
   </div>
+  {{ console.log(form.errors) }}
 </template>

@@ -2,7 +2,7 @@
   import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
   import { defineProps } from 'vue';
   import { Head, router } from '@inertiajs/vue3';
-
+  import Pagination from '@/Components/Pagination .vue';
   // Define props
   const props = defineProps({
     title: {
@@ -39,7 +39,7 @@
         </tr>
       </thead>
       <tbody class="text-gray-600 text-sm font-light">
-        <tr v-for="employee in employees" :key="employee.id" class="border-b border-gray-200 hover:bg-gray-100">
+        <tr v-for="employee in employees.data" :key="employee.id" class="border-b border-gray-200 hover:bg-gray-100">
           <td class="py-3 px-6"> {{ `${employee.name == null ? employee.fname + employee.lname : employee.name }`  }}</td>
           <td class="py-3 px-6">{{ employee?.email }}</td>
           <td class="py-3 px-6">{{ employee?.phone }}</td>
@@ -60,6 +60,9 @@
       </tbody>
     </table>
   </div>
+
+  <Pagination :pagination="employees" />
+
 </template>
 
 <style scoped>

@@ -16,7 +16,7 @@ class EmployeesRepository implements RepositoryInterface
 
     public function all()
     {
-        return $this->employee->with('company')->get();
+        return $this->employee->with('company')->paginate(10);
     }
 
     public function find($id)
